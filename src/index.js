@@ -148,7 +148,7 @@ export const addMetadata = ({
 } = {}) => {
   const {
     types = [],
-  } = (response?.data?.__schema || response?.__schema || {})
+  } = (response?.data?.__schema || response?.__schema || response?.body?.singleResult?.data?.__schema || {})
 
   // Go through all the types in the Introspection Query response and augment them
   types.forEach((type) => augmentType({ type, schemaMetadata }))
